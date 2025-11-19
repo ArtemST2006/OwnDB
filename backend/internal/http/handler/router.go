@@ -18,7 +18,23 @@ func (h *Handler) InitRoutes() *gin.Engine {
 
 	api := router.Group("/api")
 	{
-		api.POST("/create", h.create)
+		auth := api.Group("/auth")
+		{
+			auth.POST("/sign-up", h.SignUp)
+			auth.POST("/sign-in", h.SignIn)
+		}
+
+		article := api.Group("/article")
+		{
+			article.POST("/publish", h.Publish)
+			article.GET("/allartic", h.GetArticles)
+			article.GET("/import", h.Import)
+		}
+		services := api.Group("/services")
+		{
+			services.PATCH("/clear", h.clear)
+			services.POST("/commit", h.commit)
+		}
 	}
 
 	return router
