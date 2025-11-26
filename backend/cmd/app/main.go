@@ -56,7 +56,7 @@ func main() {
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 
 	go func() {
-		if err := srv.Run("8000", handler.InitRoutes()); err != nil {
+		if err := srv.Run("8080", handler.InitRoutes()); err != nil {
 			logrus.Fatalf("main.go/main/error in init http server: %s", err.Error())
 		}
 	}()

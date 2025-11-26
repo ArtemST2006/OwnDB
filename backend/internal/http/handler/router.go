@@ -34,6 +34,9 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		{
 			services.PATCH("/clear", h.clear)
 			services.POST("/commit", h.commit)
+			services.GET("/create_backup", h.createBackup)
+			services.GET("/import_backup", h.importBackup)
+			services.POST("/delete", h.delete)
 		}
 	}
 

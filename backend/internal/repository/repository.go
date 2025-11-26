@@ -10,6 +10,9 @@ type Central interface {
 	Publish(schema.Publish) error
 	GetArticles(*schema.AllArticles) error
 	Import() (*excelize.File, error)
+	ImportBackup() error
+	CreateBackup() error
+	Delete(schema.Delete) error
 }
 
 type Authorization interface {

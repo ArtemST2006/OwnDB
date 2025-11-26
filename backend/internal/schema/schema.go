@@ -22,3 +22,8 @@ type Publish struct {
 type AllArticles struct {
 	Articles []Publish `json:"articles"`
 }
+
+type Delete struct {
+	Title string `json:"title" binding:"required"`
+	Value string `json:"value" binding:"required"`
+}
